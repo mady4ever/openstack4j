@@ -54,6 +54,7 @@
         <module>connectors</module>
         <module>core-integration-test</module>
         <module>distribution</module>
+        <module>mahendraTests</module>
     </modules>
     <dependencies>
         <dependency>

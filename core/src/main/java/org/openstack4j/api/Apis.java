@@ -6,6 +6,7 @@ import org.openstack4j.api.compute.ComputeService;
 import org.openstack4j.api.gbp.GbpService;
 import org.openstack4j.api.heat.HeatService;
 import org.openstack4j.api.image.ImageService;
+import org.openstack4j.api.ironic.IronicService;
 import org.openstack4j.api.manila.ShareService;
 import org.openstack4j.api.networking.NetworkingService;
 import org.openstack4j.api.sahara.SaharaService;
@@ -95,7 +96,14 @@ public class Apis {
     public static SaharaService getSaharaServices() {
         return get(SaharaService.class);
     }
-
+    /**
+     * Gets the (Ironic) baremetal services API
+     * @return the Ironic services
+     */
+    public static IronicService getIronicServices()
+    {
+        return get(IronicService.class);
+    }
     /**
      * Gets the (Manila) Shared File Systems services API
      * 

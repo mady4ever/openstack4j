@@ -14,6 +14,7 @@ public enum ServiceType {
 	CLUSTERING("senlin", "clustering"),
 	SAHARA("sahara", "data_processing"),
 	SHARE("manila", "share"),
+	BAREMETAL("ironic","baremetal"),
 	UNKNOWN("NA", "NA")
 	;
 

@@ -25,6 +25,9 @@ import org.openstack4j.model.heat.builder.*;
 import org.openstack4j.model.identity.v2.builder.IdentityV2Builders;
 import org.openstack4j.model.identity.v3.builder.*;
 import org.openstack4j.model.image.builder.ImageBuilder;
+import org.openstack4j.model.ironic.builder.ChassisCreateBuilder;
+import org.openstack4j.model.ironic.builder.IronicServiceBuilders;
+import org.openstack4j.model.ironic.builder.NodesCreateBuilder;
 import org.openstack4j.model.manila.builder.*;
 import org.openstack4j.model.network.builder.*;
 import org.openstack4j.model.network.ext.builder.*;
@@ -64,6 +67,9 @@ import org.openstack4j.openstack.identity.v2.builder.KeystoneV2Builders;
 import org.openstack4j.openstack.identity.v3.builder.KeystoneV3Builders;
 import org.openstack4j.openstack.identity.v3.domain.*;
 import org.openstack4j.openstack.image.domain.GlanceImage;
+import org.openstack4j.openstack.ironic.builder.IronicBuilders;
+import org.openstack4j.openstack.ironic.domain.IronicChassisCreate;
+import org.openstack4j.openstack.ironic.domain.IronicNodesCreate;
 import org.openstack4j.openstack.manila.builder.ManilaBuilders;
 import org.openstack4j.openstack.manila.domain.*;
 import org.openstack4j.openstack.networking.builder.NeutronBuilders;
@@ -553,6 +559,20 @@ public class Builders {
     }
 
     /**
+     * The builder which creates Ironic chassis.
+     * @return the chassis builder
+     */
+    public static ChassisCreateBuilder ironicChassis(){return IronicChassisCreate.builder();
+    }
+
+    /**
+     * The builder which creates Ironic nodes.
+     * @return the nodes builder
+     */
+    public static NodesCreateBuilder ironicNodes(){
+        return IronicNodesCreate.builder();
+    }
+    /**
      * The builder which creates manila share networks.
      *
      * @return the share network builder
@@ -877,6 +897,12 @@ public class Builders {
      * @return the manila builders
      */
     public static SharedFileSystemBuilders manila() {return new ManilaBuilders(); }
+
+    /**
+     *  The Ironic builders
+     * @return the Ironic builders
+     */
+    public static IronicServiceBuilders ironic(){ return new IronicBuilders();}
 
     /**
      * LbaasV2 pool builder

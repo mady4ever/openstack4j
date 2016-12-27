@@ -7,6 +7,7 @@ import org.openstack4j.api.exceptions.RegionEndpointNotFoundException;
 import org.openstack4j.api.gbp.GbpService;
 import org.openstack4j.api.heat.HeatService;
 import org.openstack4j.api.image.ImageService;
+import org.openstack4j.api.ironic.IronicService;
 import org.openstack4j.api.manila.ShareService;
 import org.openstack4j.api.networking.NetworkingService;
 import org.openstack4j.api.sahara.SaharaService;
@@ -127,10 +128,16 @@ public interface OSClient< T extends OSClient<T>> {
     boolean supportsShare();
 
     /**
+     *  Determine if Ironic/Baremetal is supported
+     * @return true if supports Baremetal/Ironic Services
+     */
+    boolean supportsIronic();
+    /**
      * Gets the current endpoint of the Identity service
      *
      * @return the endpoint
      */
+
     String getEndpoint();
 
     /**
@@ -252,4 +259,15 @@ public interface OSClient< T extends OSClient<T>> {
 	 * @return the Senlin service
 	 */
 	SenlinService senlin();
+    /**
+     *  Determine if Ironic service is supported
+     * @return true if supports Ironic/Baremetal services.
+     */
+    //boolean supportsIronic();
+
+    /**
+     * Retuns the Ironic service API
+     * @return the Ironic/Baremetal service
+     */
+    IronicService ironic();
 }

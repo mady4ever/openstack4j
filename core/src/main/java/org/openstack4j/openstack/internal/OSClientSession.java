@@ -15,6 +15,7 @@ import org.openstack4j.api.gbp.GbpService;
 import org.openstack4j.api.heat.HeatService;
 import org.openstack4j.api.identity.EndpointURLResolver;
 import org.openstack4j.api.image.ImageService;
+import org.openstack4j.api.ironic.IronicService;
 import org.openstack4j.api.manila.ShareService;
 import org.openstack4j.api.networking.NetworkingService;
 import org.openstack4j.api.sahara.SaharaService;
@@ -161,7 +162,15 @@ public abstract class OSClientSession<R, T extends OSClient<T>> implements Endpo
     public ObjectStorageService objectStorage() {
         return Apis.get(ObjectStorageService.class);
     }
-
+    /**
+     * {@inheritDoc}
+     */
+    public IronicService ironic() {//return Apis.get(IronicService.class);
+            return Apis.getIronicServices(); }
+    /**
+     * {@inheritDoc}
+     */
+    public boolean supportsIronic(){return getSupportedServices().contains(ServiceType.BAREMETAL);}
     /**
      * {@inheritDoc}
      */

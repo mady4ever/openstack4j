@@ -54,6 +54,7 @@ import org.openstack4j.api.identity.v3.ServiceEndpointService;
 import org.openstack4j.api.identity.v3.TokenService;
 import org.openstack4j.api.identity.v3.UserService;
 import org.openstack4j.api.image.ImageService;
+import org.openstack4j.api.ironic.*;
 import org.openstack4j.api.manila.SchedulerStatsService;
 import org.openstack4j.api.manila.SecurityServiceService;
 import org.openstack4j.api.manila.ShareInstanceService;
@@ -179,6 +180,7 @@ import org.openstack4j.openstack.identity.v3.internal.ServiceEndpointServiceImpl
 import org.openstack4j.openstack.identity.v3.internal.TokenServiceImpl;
 import org.openstack4j.openstack.identity.v3.internal.UserServiceImpl;
 import org.openstack4j.openstack.image.internal.ImageServiceImpl;
+import org.openstack4j.openstack.ironic.internal.*;
 import org.openstack4j.openstack.manila.internal.SchedulerStatsServiceImpl;
 import org.openstack4j.openstack.manila.internal.SecurityServiceServiceImpl;
 import org.openstack4j.openstack.manila.internal.ShareInstanceServiceImpl;
@@ -312,6 +314,11 @@ public class DefaultAPIProvider implements APIProvider {
         bind(TelemetryService.class, TelemetryServiceImpl.class);
         bind(MeterService.class, MeterServiceImpl.class);
         bind(SampleService.class, SampleServiceImpl.class);
+        bind(IronicService.class, IronicServiceImpl.class);
+        bind(ChassisService.class, IronicChassisServiceImpl.class);
+        bind(NodesService.class, IronicNodesServiceImpl.class);
+        bind(PortsService.class, IronicPortsServiceImpl.class);
+        bind(DriversService.class, IronicDriversServiceImpl.class);
         bind(AlarmService.class, AlarmServiceImpl.class);
         bind(EventService.class, EventServiceImpl.class);
         bind(CapabilitiesService.class, CapabilitiesServiceImpl.class);
